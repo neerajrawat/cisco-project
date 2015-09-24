@@ -1,0 +1,87 @@
+Trying 10.106.19.200...
+Connected to 10.106.19.200.
+Escape character is '^]'.
+
+NCH_B>en
+en
+NCH_B#config t
+config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+NCH_B(config)#interface Gig1/0/18
+interface Gig1/0/18
+NCH_B(config-if)#no rep segment 1
+no rep segment 1
+NCH_B(config-if)#no shutdown
+no shutdown
+NCH_B(config-if)#interface Gig1/0/13
+interface Gig1/0/13
+NCH_B(config-if)#no rep segment 1
+no rep segment 1
+NCH_B(config-if)#no shutdown
+no shutdown
+NCH_B(config-if)#interface Gig1/0/19
+interface Gig1/0/19
+NCH_B(config-if)#no rep segment 1
+no rep segment 1
+NCH_B(config-if)#no shutdown
+no shutdown
+NCH_B(config-if)#end
+end
+NCH_B#quit
+qu
+  it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NCH_B con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Jan  5 06:49:01.075: %SYS-5-CONFIG_I: Configured from console by console
+NCH_B>

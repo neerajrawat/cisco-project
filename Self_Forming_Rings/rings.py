@@ -102,10 +102,11 @@ def getRingsMultigraph(multigraph, all_cycle_edge_list):
 			for combination in product(*multi_edge_list):
 				for i in range(len(combination)):
 					idx = edge_index[i]
-					temp = cycle[:idx]+[combination[idx]]
+					temp = cycle[:idx]+[combination[i]]
 					if i<len(cycle):
-						temp+=cycle[i+1:]
+						temp+=cycle[idx+1:]
 					cycle = temp
+					#print cycle
 				if temp not in all_cycle_edge_list_multi:
 					all_cycle_edge_list_multi.append(temp)
 					Userlogger.info("Ring "+str(len(all_cycle_edge_list_multi))+" "+str(temp))

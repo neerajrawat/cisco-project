@@ -1,87 +1,17 @@
-Trying 10.106.19.200...
-Connected to 10.106.19.200.
+Trying 10.106.19.201...
+Connected to 10.106.19.201.
 Escape character is '^]'.
 
-NCH_B>en
-en
-NCH_B#config t
-config t
-Enter configuration commands, one per line.  End with CNTL/Z.
-NCH_B(config)#interface Gig1/0/18
-interface Gig1/0/18
-NCH_B(config-if)#no rep segment 1
-no rep segment 1
-NCH_B(config-if)#no shutdown
-no shutdown
-NCH_B(config-if)#interface Gig1/0/13
-interface Gig1/0/13
-NCH_B(config-if)#no rep segment 1
-no rep segment 1
-NCH_B(config-if)#no shutdown
-no shutdown
-NCH_B(config-if)#interface Gig1/0/19
-interface Gig1/0/19
-NCH_B(config-if)#no rep segment 1
-no rep segment 1
-NCH_B(config-if)#no shutdown
-no shutdown
-NCH_B(config-if)#end
-end
-NCH_B#quit
-qu
-  it
+NCH_D>show cdp ne
+show cdp ne
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
 
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+NCH_B            Gig 2/0/23        143              S I   WS-C3750X Gig 1/0/19
+NCH_C            Gig 2/0/20        156              S I   WS-C3750X Gig 1/0/41
+NCH_A            Gig 2/0/13        165              S I   WS-C3750E Gig 4/0/22
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-NCH_B con0 is now available
-
-
-
-
-
-Press RETURN to get started.
-
-
-
-
-
-
-
-
-
-
-
-
-
-*Jan  5 06:49:01.075: %SYS-5-CONFIG_I: Configured from console by console
-NCH_B>
+Total cdp entries displayed : 3
+NCH_D>

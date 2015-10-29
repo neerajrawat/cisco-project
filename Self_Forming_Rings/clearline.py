@@ -21,6 +21,7 @@ def clearline(ip,port):
 	child.sendcontrol('m')	
 	child.expect('#')	
 	child.close()
+	print "line is cleared"
 	
 def switch_exec(ip,port):
 		""" makes the switch in exec mode instead of config mode. """			

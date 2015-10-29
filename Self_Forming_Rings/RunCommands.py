@@ -13,7 +13,7 @@ import telnetlib
 import pexpect
 import time
 
-
+from clearline import clearline,switch_exec
 from CreateDebugLog import Userlogger, Debuglogger
 
 class Switch_commands:
@@ -65,12 +65,14 @@ class Switch_commands:
 						child.expect('#')
 						child.sendline('no shutdown')
 						child.expect('#')
-						time.sleep(3)
+						#time.sleep(2)
 						child.sendline('switchport trunk encapsulation dot1q')				
 						child.expect('#')
 						child.sendline('switchport  mode trunk')				
 						child.expect('#')
-						child.sendline(command+' '+param[2]+' '+edge_config[i])	
+						child.sendline(command+' '+param[2]+' '+edge_config[i])
+						child.expect('#')
+						Userlogger.info(node_interface+' '+command+' '+param[2]+' '+ edge_config[i])#	
 						i+=1
 					
 				#for restoring Physical topology and disabling rep
@@ -99,9 +101,27 @@ class Switch_commands:
 			print "Connection is refused. Clear the session" + '  Run clearLine() function with command line arguments as  '+ ip+ ' '+port
 			Debuglogger.info("telnet to "+ip+' '+port+"Connection is refused. Clear the session")
 			Userlogger.info("telnet to "+ip+' '+port+"Connection is refused. Clear the session")
+			while 1:
+				ip_user = raw_input('Please enter the IP of the switch, as displayed in previous exception message : ')
+				port_user = 	raw_input('Please enter the PORT of the switch, as displayes in previous exception message : ')
+				if(ip_user==ip and port_user==port):
+					break
+				else:
+					print "wrong entry"								
+			clearline(ip,port)
+			
 		except pexpect.TIMEOUT:
 			print "Switch is in config or privledge mode. Come in exec mode" +' Run switch_exec() function with command line arguments as  '+ ip+ ' '+port
 			Debuglogger.info("Switch ("+ip+' '+port+") is in config. Come in exec mode")
 			Userlogger.info("Switch ("+ip+' '+port+") is in config. Come in exec mode")
+			while 1:
+				ip_user = raw_input('Please enter the IP of the switch, as displayed in previous exception message : ')
+				port_user = 	raw_input('Please enter the PORT of the switch, as displayes in previous exception message : ')
+				if(ip_user==ip and port_user==port):
+					break
+				else:
+					print "wrong entry"
+			clearline(ip,port)										
+			switch_exec(ip,port)
 	
 			
